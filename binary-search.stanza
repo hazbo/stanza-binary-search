@@ -1,0 +1,38 @@
+;              Binary Search
+;              =============
+
+; example usage:
+
+;   val a = Array<Int>(10)
+;   a[0] = 3
+;   a[1] = 6
+;   a[2] = 10
+;   a[3] = 13
+;   a[4] = 15
+;   a[5] = 17
+;   a[6] = 22
+;   a[7] = 28
+;   a[8] = 34
+;   a[9] = 40
+
+;   println(search(a, 28))
+;   7
+
+defpackage search :
+    import core
+
+defn search (haystack:Array<Int>, needle:Int) :
+    var low:Int  = 0
+    var mid:Int  = 0
+    var high:Int = length(haystack)
+
+    label<False> break :
+        while low <= high :
+            mid = (low + high) / 2
+            if haystack[mid] < needle :
+                low =  mid + 1
+            if haystack[mid] == needle :
+                break(false)
+            if haystack[mid] > needle :
+                high = mid - 1
+    mid
